@@ -4,12 +4,12 @@ from behave import then, when
 
 @when("I request a ping")
 def request_ping(context):
-    context.response = requests.get("http://localhost:8080/ping")
+    context.response = requests.get("http://localhost:8080/ping", timeout=2)
 
 
 @when("I query a nonexistent endpoint")
 def request_nonexistent_endpoint(context):
-    context.response = requests.get("http://localhost:8080/nope")
+    context.response = requests.get("http://localhost:8080/nope", timeout=2)
 
 
 @then("I get a {thing} back")

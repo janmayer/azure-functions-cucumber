@@ -1,0 +1,4 @@
+#!/bin/sh
+./bin/dev 'pylint application'
+./bin/dev 'pylint features'
+./bin/dev 'mypy application'

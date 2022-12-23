@@ -6,3 +6,16 @@ quiet = true
 [tool.black]
 target-version = ["py39"]
 quiet = true
+
+[tool.pylint.main]
+jobs = 0
+enable-all-extensions = true
+ignored-modules = "behave"
+[tool.pylint."messages control"]
+disable="missing-module-docstring,missing-function-docstring"
+[tool.pylint.reports]
+score = false
+
+[tool.mypy]
+strict = true
+error_summary = false

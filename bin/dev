@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-docker build --quiet --tag application-develop --file development/Dockerfile . 2> /dev/null
+docker build --quiet --tag application-develop --file development/Dockerfile . 1> /dev/null
 docker run \
     --rm \
     --net=host \
