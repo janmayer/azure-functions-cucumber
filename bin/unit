@@ -1,0 +1,2 @@
+#!/bin/sh
+./bin/dev 'pytest --doctest-modules --cov=application'
