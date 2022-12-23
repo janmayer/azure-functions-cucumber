@@ -3,3 +3,4 @@
 ./bin/dev 'black .'
 ./bin/dev 'reformat-gherkin .'
 ./bin/dev 'find . -name "*.json" -not -path "*/.*" -exec python3 -m json.tool {} {} \;'
+./bin/dev 'beautysh bin/*'

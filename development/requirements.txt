@@ -1,3 +1,4 @@
+beautysh==6.2.1
 behave==1.2.6
 black==22.12.0
 isort==5.11.4
