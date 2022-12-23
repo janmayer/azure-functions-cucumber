@@ -1,2 +1,2 @@
 #!/bin/sh
-behave
+./bin/dev 'behave'

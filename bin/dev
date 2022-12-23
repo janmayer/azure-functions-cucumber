@@ -1,0 +1,13 @@
+#!/bin/sh
+set -e
+
+docker build --quiet --tag application-develop --file development/Dockerfile . 2> /dev/null
+docker run \
+    --rm \
+    --net=host \
+    --volume $(pwd):$(pwd) \
+    --workdir $(pwd) \
+    --env PYTHONPATH=application:. \
+    --entrypoint=sh \
+    application-develop \
+    -c "$@"

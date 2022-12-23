@@ -1,5 +1,5 @@
-from behave import when, then
 import requests
+from behave import then, when
 
 
 @when("I request a ping")
