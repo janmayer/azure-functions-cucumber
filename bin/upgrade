@@ -1,0 +1,2 @@
+#!/bin/sh
+./bin/dev 'pip-upgrade */requirements.txt --skip-package-installation --skip-virtualenv-check -p all'

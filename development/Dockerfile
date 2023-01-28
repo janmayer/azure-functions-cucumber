@@ -1,4 +1,4 @@
-FROM python:3.9
+FROM python:3.10
 
 COPY application/requirements.txt application-requirements.txt
 COPY development/requirements.txt development-requirements.txt

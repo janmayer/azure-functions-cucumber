@@ -28,6 +28,8 @@ This repository provides solutions to feature test Azure Functions with several 
   - [x] Gherkin
   - [x] JSON
   - [x] Shell
+- [ ] Upgrading / QoL
+  - [x] Python Packages `./bin/upgrade`
 
 ## Running the System
 
