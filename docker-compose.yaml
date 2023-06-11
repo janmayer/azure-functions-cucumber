@@ -7,3 +7,5 @@ services:
       dockerfile: application/Dockerfile
     ports:
       - 8080:80
+    volumes:
+      - ./application:/home/site/wwwroot
