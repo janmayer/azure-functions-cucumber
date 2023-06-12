@@ -9,3 +9,22 @@ services:
       - 8080:80
     volumes:
       - ./application:/home/site/wwwroot
+    stop_grace_period: 1s
+    environment:
+      CARSERVICE_BASE_URL: "http://carservice:8080"
+      CARSERVICE_SCOPE: "api://carservice/.default"
+
+  carservice:
+    image: wiremock/wiremock
+    command: "--disable-banner"
+    ports:
+      - 9000:8080
+
+  login.microsoftonline.com:
+    image: wiremock/wiremock
+    command: "--disable-banner --global-response-templating --https-port 443 --https-keystore /certs/oauth.p12 --keystore-password password"
+    volumes:
+      - ./build:/certs
+      - ./features/mocks/oauth:/home/wiremock/mappings
+    ports:
+      - 9001:443

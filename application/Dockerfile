@@ -7,5 +7,9 @@ ENV FUNCTIONS_SECRETS_PATH=/etc/secrets
 ENV AzureWebJobsSecretStorageType=Files
 ADD development/host.json /etc/secrets/host.json
 
+COPY build/oauth.crt /usr/local/share/ca-certificates/oauth.crt
+RUN update-ca-certificates
+ENV REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
+
 COPY application/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
