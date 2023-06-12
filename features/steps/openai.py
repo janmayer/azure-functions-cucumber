@@ -3,14 +3,14 @@ from behave import given
 
 @given("the AI description generator is functional")
 def mock_openai(context):
-    context.carservice.post(
+    context.openai.post(
         "mappings",
         json={
             "request": {
-                "url": "/completions",
+                "url": "/v1/completions",
                 "method": "POST",
                 "headers": {
-                    "Authorization": {"equalTo": "Bearer MY_OPENAI_API_KEY"},
+                    "Authorization": {"equalTo": "Bearer my_openai_api_key"},
                 },
             },
             "response": {
@@ -23,9 +23,9 @@ def mock_openai(context):
                     "model": "VAR_model_id",
                     "choices": [
                         {
-                            "text": "This is indeed a test",
+                            "text": "Tolle Karre.",
                             "index": 0,
-                            "logprobs": null,
+                            "logprobs": None,
                             "finish_reason": "length",
                         }
                     ],

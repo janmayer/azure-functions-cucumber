@@ -31,4 +31,4 @@ def request_description(context):
 def ensure_description(context):
     assert context.response.status_code == 200
     assert context.response.json()["vin"] == context.vin
-    assert context.response.json()["description"]
+    assert context.response.json()["description"] == "Tolle Karre."

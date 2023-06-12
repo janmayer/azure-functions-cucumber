@@ -11,6 +11,10 @@ services:
       - ./application:/home/site/wwwroot
     stop_grace_period: 1s
     environment:
+      AZURE_TENANT_ID: "00000000-1111-2222-3333-444444444444"
+      AZURE_CLIENT_ID: "my_service_principal"
+      AZURE_CLIENT_SECRET: "my_secret_look_away_please"
+      OPENAI_API_KEY: "my_openai_api_key"
       CARSERVICE_BASE_URL: "http://carservice:8080"
       CARSERVICE_SCOPE: "api://carservice/.default"
 
@@ -28,3 +32,11 @@ services:
       - ./features/mocks/oauth:/home/wiremock/mappings
     ports:
       - 9001:443
+
+  api.openai.com:
+    image: wiremock/wiremock
+    command: "--disable-banner --global-response-templating --https-port 443 --https-keystore /certs/openapi.p12 --keystore-password password"
+    volumes:
+      - ./build:/certs
+    ports:
+      - 9002:443

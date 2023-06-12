@@ -6,6 +6,11 @@ if [ ! -f "build/oauth.p12" ]; then
     openssl req -newkey rsa:2048 -x509 -days 365 -config development/oauth.conf -nodes -keyout build/oauth.key -out build/oauth.crt
     openssl pkcs12 -export -inkey build/oauth.key -in build/oauth.crt -out build/oauth.p12 -passout pass:password
 fi
+if [ ! -f "build/openapi.p12" ]; then
+    openssl req -newkey rsa:2048 -x509 -days 365 -config development/openapi.conf -nodes -keyout build/openapi.key -out build/openapi.crt
+    openssl pkcs12 -export -inkey build/openapi.key -in build/openapi.crt -out build/openapi.p12 -passout pass:password
+fi
+
 
 docker compose build --parallel
 docker compose up ${*}
