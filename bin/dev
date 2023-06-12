@@ -3,6 +3,7 @@ set -e
 
 docker build --quiet --tag application-develop --file development/Dockerfile . 1> /dev/null
 docker run \
+    -t \
     --rm \
     --net=host \
     --volume $(pwd):$(pwd) \
