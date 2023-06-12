@@ -3,17 +3,17 @@ import os
 
 import azure.functions as func
 import openai
-import pydantic
 import requests
 from azure.identity import EnvironmentCredential
+from pydantic import BaseModel
 
 
-class Response(pydantic.BaseModel):
+class Response(BaseModel):
     vin: str
     description: str
 
 
-class VehicleDetails(pydantic.BaseModel):
+class VehicleDetails(BaseModel):
     vin: str
     brand: str
     model: str
@@ -30,6 +30,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     vehicle_response = requests.get(
         f"{os.environ['CARSERVICE_BASE_URL']}/vehicles/{vin}/details",
         headers={"Authorization": f"Bearer {token}"},
+        timeout=10,
     )
     vehicle_response.raise_for_status()
     vehicle_details = VehicleDetails(**vehicle_response.json())

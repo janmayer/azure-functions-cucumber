@@ -12,7 +12,8 @@ jobs = 0
 enable-all-extensions = true
 ignored-modules = "behave"
 [tool.pylint."messages control"]
-disable="missing-module-docstring,missing-function-docstring"
+extension-pkg-whitelist = "pydantic"
+disable="missing-module-docstring,missing-function-docstring,missing-class-docstring"
 [tool.pylint.reports]
 score = false
 
