@@ -4,5 +4,5 @@
         "value": "MY_MASTER_KEY",
         "encrypted": false
     },
-    "functionKeys": [ ]
+    "functionKeys": []
 }

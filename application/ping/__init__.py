@@ -4,7 +4,7 @@ import azure.functions as func
 
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
-    """ doctest
+    """doctest
     >>> req = func.HttpRequest(method="get", url="ping", body=None)
     >>> res = main(req)
     >>> res.get_body().decode("utf-8")
