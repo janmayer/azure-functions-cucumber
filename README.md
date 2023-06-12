@@ -15,7 +15,7 @@ This repository provides solutions to feature test Azure Functions with several 
   - [ ] Azure Storage
   - [ ] Azure Key Vault
   - [ ] Azure Cosmos DB
-  - [ ] Wiremock
+  - [x] Wiremock
 - [x] Testing
   - [x] Feature Tests with behave: `./bin/test`
   - [x] Unit Tests and coverage: `./bin/unit`
@@ -42,7 +42,3 @@ Given Docker is installed (on Windows, WSL integration is recommended), use `./b
 The two Dockerfiles (`application/Dockerfile` and `development/Dockerfile`) are for development and testing only - do **not** use a Dockerfile to deploy your code to production.
 
 All actions like testing, formatting, linting, etc. are done using a docker image and `./bin/dev` - so everyone (and every pipeline) uses the same packages.
-
-### Python
-
-Currently, Azure Functions only support Python 3.9. (Even though a 3.10. Docker Base Image exists.)
