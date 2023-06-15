@@ -9,7 +9,7 @@ def mock_carservice(context):
         "mappings",
         json={
             "request": {
-                "url": "/vehicles/OBEYTAILGATER0000/details",
+                "url": f"/vehicles/{context.vin}/details",
                 "method": "GET",
                 "headers": {
                     "Authorization": {"equalTo": "Bearer im.a.token"},
@@ -19,7 +19,7 @@ def mock_carservice(context):
                 "status": 200,
                 "headers": {"Content-Type": "application/json"},
                 "jsonBody": {
-                    "vin": "OBEYTAILGATER0000",
+                    "vin": context.vin,
                     "brand": "obey",
                     "model": "tailgater",
                     "color": "black",
