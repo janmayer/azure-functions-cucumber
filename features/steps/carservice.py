@@ -27,3 +27,25 @@ def mock_carservice(context):
             },
         },
     ).raise_for_status()
+
+
+@given("a specific vehicle does not exist")
+def mock_carservice(context):
+    context.vin = "1234567890ABCDEFG"
+
+    context.carservice.post(
+        "mappings",
+        json={
+            "request": {
+                "url": f"/vehicles/{context.vin}/details",
+                "method": "GET",
+                "headers": {
+                    "Authorization": {"equalTo": "Bearer im.a.token"},
+                },
+            },
+            "response": {
+                "status": 404,
+                "headers": {"Content-Type": "application/json"},
+            },
+        },
+    ).raise_for_status()

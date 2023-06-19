@@ -31,7 +31,7 @@ services:
       - ./build:/certs
       - ./features/mocks/oauth:/home/wiremock/mappings
     ports:
-      - 9001:443
+      - 9001:8080
 
   api.openai.com:
     image: wiremock/wiremock
@@ -39,4 +39,4 @@ services:
     volumes:
       - ./build:/certs
     ports:
-      - 9002:443
+      - 9002:8080
