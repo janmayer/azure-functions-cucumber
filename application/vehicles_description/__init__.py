@@ -36,7 +36,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     vehicle_details = VehicleDetails(**vehicle_response.json())
 
     openai.api_key = os.environ["OPENAI_API_KEY"]
-    openai_response = openai.Completion.create(
+    openai_response = openai.Completion.create(  # type: ignore
         model="text-davinci-003",
         prompt=f"Great Prompt for {vehicle_details.json()}.",
         max_tokens=7,

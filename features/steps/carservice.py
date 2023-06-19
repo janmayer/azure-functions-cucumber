@@ -30,7 +30,7 @@ def mock_carservice(context):
 
 
 @given("a specific vehicle does not exist")
-def mock_carservice(context):
+def mock_carservice_missing_vehicle(context):
     context.vin = "1234567890ABCDEFG"
 
     context.carservice.post(
