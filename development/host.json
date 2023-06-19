@@ -1,8 +1,0 @@
-{
-    "masterKey": {
-        "name": "master",
-        "value": "MY_MASTER_KEY",
-        "encrypted": false
-    },
-    "functionKeys": []
-}

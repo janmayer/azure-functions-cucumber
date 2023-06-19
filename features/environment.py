@@ -8,12 +8,6 @@ def before_all(context):
         base_url="https://localhost:9002/__admin", verify=False
     )
 
-    context.application.post(
-        "/admin/host/restart",
-        headers={"x-functions-key": "MY_MASTER_KEY"},
-        timeout=10,
-    ).raise_for_status()
-
 
 def before_scenario(context, _):
     for mock in [context.carservice, context.openai]:
