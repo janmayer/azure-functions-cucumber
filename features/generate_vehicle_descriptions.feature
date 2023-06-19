@@ -7,7 +7,7 @@ Feature: Generate Vehicle Descriptions
     Given details about a specific vehicle are available
     And the AI description generator is functional
     When the user requests a description for this vehicle
-    Then the Description Service provides a description for that vehicle
+    Then a description for this vehicle is provided
 
   Scenario: Generate Description for unknown Vehicle
     Given a specific vehicle does not exist

@@ -6,7 +6,7 @@ def request_description(context):
     context.response = context.application.get(f"/vehicles/{context.vin}/description")
 
 
-@then("the Description Service provides a description for that vehicle")
+@then("a description for this vehicle is provided")
 def ensure_description(context):
     assert context.response.status_code == 200
     assert context.response.json()["vin"] == context.vin
